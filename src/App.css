@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    @apply 3xl:px-[375px] xll:px-[135px] lg:px-[80px] md:px-[40px] px-[20px] mx-auto max-w-full;
+}
