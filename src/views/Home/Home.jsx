@@ -1,52 +1,40 @@
 import { useState } from "react";
-import { Reorder } from "framer-motion";
+// import { Reorder } from "framer-motion";
 import Header from "../../components/Header";
-import ImageItem from "../../components/ImageItem";
 import { galleryItems } from "../../constants/gallery";
+import ImageLayout from "./partials/ImageLayout";
 
 const Home = () => {
 
+    // states
     const [items, setItems] = useState(galleryItems);
     const [selectedItems, setSelectedItems] = useState([]);
 
-
-    // handle checkbox
-    const handleCheckboxChange = (e) => {
-        const src = e.target.value;
-
-        if (e.target.checked) {
-            setSelectedItems((prevSelectedItems) => [...prevSelectedItems, src]);
-        } else {
-            setSelectedItems((prevSelectedItems) => prevSelectedItems.filter((g) => g !== src));
-        }
-    };
+    // delete item or items function
+    const deleteItems = () => {
+        const unmatchedItems = items.filter((item) => !selectedItems.some(selectedItem => item.src === selectedItem));
+        setItems(unmatchedItems)
+        setSelectedItems([]);
+    }
 
     return (
         <div className="bg-gray-100 h-screen flex items-center justify-center">
 
             <div className="container ">
-
                 <div className="bg-white rounded-lg pb-5 h-[90vh]  w-full">
 
                     {/* header */}
-                    <Header />
+                    <Header
+                        selectedItems={selectedItems}
+                        deleteItems={deleteItems}
+                    />
 
-                    <div className="pt-5 px-5">
-                        <div className="grid grid-cols-5 gap-5">
-                            {items.map((item, index) => (
-                                <ImageItem
-                                    key={index}
-                                    index={index}
-                                    item={item}
-                                    selectedItems={selectedItems}
-                                    setSelectedItems={setSelectedItems}
-                                    handleCheckboxChange={handleCheckboxChange}
-                                />
-                            ))}
-                        </div>
-                    </div>
-
-
+                    {/* image layout */}
+                    <ImageLayout
+                        items={items}
+                        selectedItems={selectedItems}
+                        setSelectedItems={setSelectedItems}
+                    />
                 </div>
 
                 {/* <Reorder.Group axis="y" onReorder={setItems} values={items}>
@@ -56,7 +44,6 @@ const Home = () => {
                 </Reorder.Group> */}
 
             </div>
-
         </div>
     )
 }

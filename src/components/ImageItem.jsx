@@ -14,11 +14,11 @@ const ImageItem = ({ index, item, selectedItems, handleCheckboxChange }) => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <img src={item.src} alt={item.src} />
+            <img src={item.src} alt={item.src} className='rounded-lg' />
 
             {(isHovered || selectedItems.includes(item.src)) && (
                 <div className={cx(
-                    "absolute inset-0 pt-2 pl-2",
+                    "absolute inset-0 pt-2 pl-2 rounded-lg",
                     isHovered && " bg-black bg-opacity-50",
                     selectedItems.includes(item.src) && " bg-white bg-opacity-50",
                 )}>
