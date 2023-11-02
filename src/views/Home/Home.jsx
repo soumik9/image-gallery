@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { Reorder } from "framer-motion";
 import Header from "../../components/Header";
 import { galleryItems } from "../../constants/gallery";
 import ImageLayout from "./partials/ImageLayout";
@@ -32,16 +31,11 @@ const Home = () => {
                     {/* image layout */}
                     <ImageLayout
                         items={items}
+                        setItems={setItems}
                         selectedItems={selectedItems}
                         setSelectedItems={setSelectedItems}
                     />
                 </div>
-
-                {/* <Reorder.Group axis="y" onReorder={setItems} values={items}>
-                    {items.map((item) => (
-                        <Item key={item} item={item} />
-                    ))}
-                </Reorder.Group> */}
 
             </div>
         </div>

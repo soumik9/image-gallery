@@ -1,7 +1,10 @@
+import AddImagesCard from "../../../components/AddImagesCard";
 import ImageItem from "../../../components/ImageItem"
+import { useRef } from "react";
 
+const ImageLayout = ({ items, setItems, selectedItems, setSelectedItems }) => {
 
-const ImageLayout = ({ items, selectedItems, setSelectedItems }) => {
+    const parentRef = useRef();
 
     // handle checkbox itmes
     const handleCheckboxChange = (e) => {
@@ -16,7 +19,7 @@ const ImageLayout = ({ items, selectedItems, setSelectedItems }) => {
 
     return (
         <div className="pt-5 px-5">
-            <div className="grid grid-cols-5 gap-5">
+            <div ref={parentRef} className="grid grid-cols-5 gap-5">
                 {items.map((item, index) => (
                     <ImageItem
                         key={index}
@@ -25,8 +28,11 @@ const ImageLayout = ({ items, selectedItems, setSelectedItems }) => {
                         selectedItems={selectedItems}
                         setSelectedItems={setSelectedItems}
                         handleCheckboxChange={handleCheckboxChange}
+                        parentRef={parentRef}
                     />
                 ))}
+
+                <AddImagesCard />
             </div>
         </div>
     )
