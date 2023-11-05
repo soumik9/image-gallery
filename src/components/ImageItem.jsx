@@ -1,29 +1,42 @@
 import { useState } from 'react';
 import { cx } from '../hooks/helpers'
-import { motion, useDragControls } from 'framer-motion';
+import { useDrag, useDrop } from 'react-dnd';
 
-const ImageItem = ({ index, item, selectedItems, handleCheckboxChange, parentRef }) => {
-
-    const controls = useDragControls();
+const ImageItem = ({ index, item, selectedItems, handleCheckboxChange, moveImage }) => {
 
     // states
     const [isHovered, setIsHovered] = useState(false);
 
+    // dragged image index
+    const [{ isDragging }, ref] = useDrag({
+        type: 'IMAGE',
+        item: { index },
+        collect: (monitor) => ({
+            isDragging: !!monitor.isDragging(),
+        }),
+    });
+    // dropping image to other card position
+    const [, drop] = useDrop({
+        accept: 'IMAGE',
+        hover: (draggedItem) => {
+            if (draggedItem.index !== index) {
+                moveImage(draggedItem.index, index);
+                draggedItem.index = index;
+            }
+        },
+    });
+
     return (
-        <motion.div
+        <div
             className={cx(
                 "border relative rounded-lg",
-                index === 0 && "col-span-2 row-span-2"
+                index === 0 && "col-span-2 row-span-2",
+                isDragging && 'image-dragging'
             )}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             id={item}
-            drag
-            dragConstraints={parentRef}
-            dragControls={controls}
-            onPointerDown={(e) => {
-                console.log(e.target.value);
-            }}
+            ref={(node) => ref(drop(node))}
         >
             <img src={item.src} alt={item.src} className='rounded-lg' />
 
@@ -42,7 +55,7 @@ const ImageItem = ({ index, item, selectedItems, handleCheckboxChange, parentRef
                     />
                 </div>
             )}
-        </motion.div>
+        </div>
     )
 }
 

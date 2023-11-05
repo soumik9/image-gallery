@@ -17,9 +17,9 @@ const Home = () => {
     }
 
     return (
-        <div className="bg-gray-100 h-screen flex items-center justify-center">
+        <main className="bg-gray-100 h-screen flex items-center justify-center">
+            <div className="container">
 
-            <div className="container ">
                 <div className="bg-white rounded-lg pb-5 h-[90vh]  w-full">
 
                     {/* header */}
@@ -35,10 +35,11 @@ const Home = () => {
                         selectedItems={selectedItems}
                         setSelectedItems={setSelectedItems}
                     />
+
                 </div>
 
-            </div>
-        </div>
+            </div> {/* container end */}
+        </main>
     )
 }
 

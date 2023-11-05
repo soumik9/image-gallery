@@ -10,3 +10,9 @@
 .container {
     @apply 3xl:px-[375px] xll:px-[135px] lg:px-[80px] md:px-[40px] px-[20px] mx-auto max-w-full;
 }
+
+.image-dragging {
+    transform: scale(1.05);
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
