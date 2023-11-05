@@ -1,8 +1,16 @@
-# React + Vite
+# Image Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend Live Link [Image Gallery](https://image-gallery-pi-nine.vercel.app/)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Frontend Features
+
+- [x] Images with a featured image.
+- [x] Drag and drop with position shifting.
+- [x] Delete image or multiple image.
+- [x] When selecting an image for deletion, carefully handle singular or plural text messages in the header.
+
+
+## Upcoming
+
+- [x] Add images
