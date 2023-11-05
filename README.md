@@ -7,7 +7,7 @@ Frontend Live Link [Image Gallery](https://image-gallery-pi-nine.vercel.app/)
 
 - [x] Images with a featured image.
 - [x] Drag and drop with position shifting.
-- [x] Delete image or multiple image.
+- [x] Delete the image or multiple images.
 - [x] When selecting an image for deletion, carefully handle singular or plural text messages in the header.
 
 
