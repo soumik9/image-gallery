@@ -29,8 +29,9 @@ const ImageItem = ({ index, item, selectedItems, handleCheckboxChange, moveImage
     return (
         <div
             className={cx(
-                "border relative rounded-lg",
-                index === 0 && "col-span-2 row-span-2",
+                "border relative rounded-lg w-full",
+                index === 0 && "lg:col-span-2 lg:row-span-2",
+                index !== 0 ? 'h-full lg:h-[185px]' : 'lg:h-[390px] h-full',
                 isDragging && 'image-dragging'
             )}
             onMouseEnter={() => setIsHovered(true)}
@@ -38,7 +39,7 @@ const ImageItem = ({ index, item, selectedItems, handleCheckboxChange, moveImage
             id={item}
             ref={(node) => ref(drop(node))}
         >
-            <img src={item.src} alt={item.src} className='rounded-lg' />
+            <img src={item.src} alt={item.src} className='rounded-lg w-full h-full' />
 
             {(isHovered || selectedItems.includes(item.src)) && (
                 <div className={cx(

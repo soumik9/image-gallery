@@ -20,7 +20,7 @@ const Home = () => {
         <main className="bg-gray-100 h-screen flex items-center justify-center">
             <div className="container">
 
-                <div className="bg-white rounded-lg pb-5 h-[90vh]  w-full">
+                <div className="bg-white rounded-lg pb-5 max-h-[95vh]">
 
                     {/* header */}
                     <Header
@@ -35,7 +35,6 @@ const Home = () => {
                         selectedItems={selectedItems}
                         setSelectedItems={setSelectedItems}
                     />
-
                 </div>
 
             </div> {/* container end */}

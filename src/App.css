@@ -16,3 +16,20 @@
     opacity: 0.7;
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
+
+  /* scrollbar design */
+.scrollbar::-webkit-scrollbar {
+    width: 0.6rem;
+    background: #f1f1f1;
+    border-radius: 0.5rem;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 0.5rem;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #888;
+    cursor: pointer;
+  }

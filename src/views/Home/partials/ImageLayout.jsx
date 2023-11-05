@@ -25,9 +25,9 @@ const ImageLayout = ({ items, setItems, selectedItems, setSelectedItems }) => {
     };
 
     return (
-        <div className="pt-5 px-5">
+        <div className="py-5 px-5 h-full overflow-y-auto max-h-[89vh] scrollbar">
             <DndProvider backend={HTML5Backend}>
-                <div className="grid grid-cols-5 gap-5">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
                     {items.map((item, index) => (
                         <ImageItem
                             key={index}
